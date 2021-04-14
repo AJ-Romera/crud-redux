@@ -2,6 +2,9 @@ import {
     AGREGAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
     AGREGAR_PRODUCTO_ERROR,
+    COMENZAR_DESCARGA_PRODUCTOS,
+    DESCARGA_PRODUCTOS_EXITO,
+    DESCARGA_PRODUCTOS_ERROR,
 } from '../types/index';
 
 // Cada reducer tiene su propio state
@@ -15,9 +18,10 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case AGREGAR_PRODUCTO:
+        case COMENZAR_DESCARGA_PRODUCTOS:
             return {
                 ...state,
-                loading: true,
+                loading: action.payload,
             };
         case AGREGAR_PRODUCTO_EXITO:
             return {
