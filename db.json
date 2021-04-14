@@ -2,32 +2,32 @@
   "productos": [
     {
       "nombre": "SmartPhone",
-      "precio": "220",
+      "precio": 220,
       "id": 1
     },
     {
       "nombre": "PC",
-      "precio": "1200",
+      "precio": 1200,
       "id": 2
     },
     {
       "nombre": "TV Box",
-      "precio": "35",
+      "precio": 35,
       "id": 3
     },
     {
       "nombre": "Laptop",
-      "precio": "800",
+      "precio": 800,
       "id": 4
     },
     {
       "nombre": "SmartWatch",
-      "precio": "40",
+      "precio": 40,
       "id": 5
     },
     {
       "nombre": "TV",
-      "precio": "380",
+      "precio": 380,
       "id": 6
     },
     {
