@@ -39,6 +39,16 @@
       "nombre": "Adamantina",
       "precio": 33,
       "id": 8
+    },
+    {
+      "nombre": "avellanas",
+      "precio": 5,
+      "id": 9
+    },
+    {
+      "nombre": "Mouse",
+      "precio": 25,
+      "id": 10
     }
   ]
 }
