@@ -1,19 +1,24 @@
 {
   "productos": [
     {
-      "nombre": "Pro1",
-      "precio": 1,
+      "nombre": "Producto1",
+      "precio": "111",
       "id": 1
     },
     {
-      "nombre": "Pro2",
-      "precio": 2,
+      "nombre": "Producto2",
+      "precio": "222",
       "id": 2
     },
     {
-      "nombre": "Adamantina",
-      "precio": 3,
+      "nombre": "Producto3",
+      "precio": "333",
       "id": 4
+    },
+    {
+      "nombre": "ProductoEditado",
+      "precio": "1234",
+      "id": 5
     }
   ]
 }

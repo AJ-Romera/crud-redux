@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editarProductoAction } from '../actions/productoActions';
+import { useHistory } from 'react-router-dom';
 
-function EditarProducto() {
+const EditarProducto = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
     // nuevo state de producto
     const [producto, guardarProducto] = useState({
         nombre: '',
         precio: '',
     });
 
-    // Producto a editar
+    // producto a editar
     const productoeditar = useSelector(
         (state) => state.productos.productoeditar
     );
@@ -27,12 +31,14 @@ function EditarProducto() {
         });
     };
 
-    const { nombre, precio, id } = producto;
+    const { nombre, precio } = producto;
 
     const submitEditarProducto = (e) => {
         e.preventDefault();
 
-        editarProductoAction();
+        dispatch(editarProductoAction(producto));
+
+        history.push('/');
     };
 
     return (
@@ -81,6 +87,6 @@ function EditarProducto() {
             </div>
         </div>
     );
-}
+};
 
 export default EditarProducto;
