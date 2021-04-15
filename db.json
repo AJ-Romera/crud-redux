@@ -1,69 +1,19 @@
 {
   "productos": [
     {
-      "nombre": "SmartPhone",
-      "precio": 220,
+      "nombre": "Pro1",
+      "precio": 1,
       "id": 1
     },
     {
-      "nombre": "PC",
-      "precio": 1200,
+      "nombre": "Pro2",
+      "precio": 2,
       "id": 2
     },
     {
-      "nombre": "TV Box",
-      "precio": 35,
-      "id": 3
-    },
-    {
-      "nombre": "Laptop",
-      "precio": 800,
-      "id": 4
-    },
-    {
-      "nombre": "SmartWatch",
-      "precio": 40,
-      "id": 5
-    },
-    {
-      "nombre": "TV",
-      "precio": 380,
-      "id": 6
-    },
-    {
-      "nombre": "Chromecast",
-      "precio": 45,
-      "id": 7
-    },
-    {
       "nombre": "Adamantina",
-      "precio": 33,
-      "id": 8
-    },
-    {
-      "nombre": "avellanas",
-      "precio": 5,
-      "id": 9
-    },
-    {
-      "nombre": "Mouse",
-      "precio": 25,
-      "id": 10
-    },
-    {
-      "nombre": "Probando Alert",
-      "precio": 111,
-      "id": 11
-    },
-    {
-      "nombre": "Love Yourself Album",
-      "precio": 40,
-      "id": 12
-    },
-    {
-      "nombre": "Plátanana",
-      "precio": 33,
-      "id": 13
+      "precio": 3,
+      "id": 4
     }
   ]
 }

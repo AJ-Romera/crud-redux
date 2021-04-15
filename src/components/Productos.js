@@ -2,19 +2,20 @@ import React, { useEffect } from 'react';
 import Producto from './Producto';
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { obtenerProductosAction } from '../actions/productoActions';
 
-function Productos() {
+const Productos = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // Consultar la API
+        // Consultar la api
         const cargarProductos = () => dispatch(obtenerProductosAction());
         cargarProductos();
+        // eslint-disable-next-line
     }, []);
 
-    // Obtener el state
+    // obtener el state
     const productos = useSelector((state) => state.productos.productos);
     const error = useSelector((state) => state.productos.error);
     const cargando = useSelector((state) => state.productos.loading);
@@ -29,7 +30,7 @@ function Productos() {
                 </p>
             ) : null}
 
-            {cargando ? <p className='text-center'>Cargando...</p> : null}
+            {cargando ? <p className='text-center'>Cargando....</p> : null}
 
             <table className='table table-striped'>
                 <thead className='bg-primary table-dark'>
@@ -49,6 +50,6 @@ function Productos() {
             </table>
         </>
     );
-}
+};
 
 export default Productos;
