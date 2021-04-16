@@ -16,9 +16,14 @@
       "id": 4
     },
     {
-      "nombre": "ProductoEditado",
+      "nombre": "ProductoEditado2",
       "precio": "1234",
       "id": 5
+    },
+    {
+      "nombre": "PC",
+      "precio": 800,
+      "id": 6
     }
   ]
 }

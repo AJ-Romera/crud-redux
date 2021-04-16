@@ -3,41 +3,50 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions';
+import { mostrarAlerta, ocultarAlertaAction } from '../actions/alertaActions';
 
-function NuevoProducto({ history }) {
-    // State del componente
-    const [nombre, setNombre] = useState('');
-    const [precio, setPrecio] = useState(0);
+const NuevoProductos = ({ history }) => {
+    // state del componente
+    const [nombre, guardarNombre] = useState('');
+    const [precio, guardarPrecio] = useState(0);
 
-    // Utilizar useDispatch, que te crea una función
+    // utilizar use dispatch y te crea una función
     const dispatch = useDispatch();
 
     // Acceder al state del store
     const cargando = useSelector((state) => state.productos.loading);
     const error = useSelector((state) => state.productos.error);
+    const alerta = useSelector((state) => state.alerta.alerta);
 
-    // Manda a llamar el action de productoAction
+    // mandar llamar el action de productoAction
     const agregarProducto = (producto) =>
         dispatch(crearNuevoProductoAction(producto));
 
-    // Cuando el usuario haga submit
+    // cuando el usuario haga submit
     const submitNuevoProducto = (e) => {
         e.preventDefault();
 
-        // Validar formulario
+        // validar formulario
         if (nombre.trim() === '' || precio <= 0) {
+            const alerta = {
+                msg: 'Ambos campos son obligatorios',
+                classes: 'alert alert-danger text-center text-uppercase p3',
+            };
+            dispatch(mostrarAlerta(alerta));
+
             return;
         }
 
-        // Si no hay errores
+        // si no hay errores
+        dispatch(ocultarAlertaAction());
 
-        // Crear el nuevo producto
+        // crear el nuevo producto
         agregarProducto({
             nombre,
             precio,
         });
 
-        // Redireccionar
+        // redireccionar
         history.push('/');
     };
 
@@ -50,6 +59,10 @@ function NuevoProducto({ history }) {
                             Agregar Nuevo Producto
                         </h2>
 
+                        {alerta ? (
+                            <p className={alerta.classes}> {alerta.msg} </p>
+                        ) : null}
+
                         <form onSubmit={submitNuevoProducto}>
                             <div className='form-group'>
                                 <label>Nombre Producto</label>
@@ -59,7 +72,9 @@ function NuevoProducto({ history }) {
                                     placeholder='Nombre Producto'
                                     name='nombre'
                                     value={nombre}
-                                    onChange={(e) => setNombre(e.target.value)}
+                                    onChange={(e) =>
+                                        guardarNombre(e.target.value)
+                                    }
                                 />
                             </div>
 
@@ -72,7 +87,7 @@ function NuevoProducto({ history }) {
                                     name='precio'
                                     value={precio}
                                     onChange={(e) =>
-                                        setPrecio(Number(e.target.value))
+                                        guardarPrecio(Number(e.target.value))
                                     }
                                 />
                             </div>
@@ -86,6 +101,7 @@ function NuevoProducto({ history }) {
                         </form>
 
                         {cargando ? <p>Cargando...</p> : null}
+
                         {error ? (
                             <p className='alert alert-danger p2 mt-4 text-center'>
                                 Hubo un error
@@ -96,6 +112,6 @@ function NuevoProducto({ history }) {
             </div>
         </div>
     );
-}
+};
 
-export default NuevoProducto;
+export default NuevoProductos;
